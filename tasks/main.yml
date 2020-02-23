@@ -19,7 +19,7 @@
 - name: Ensure pip --user enabled in .bashrc
   become_user: "{{ actual_user }}"
   blockinfile:
-    dest: "{{ actual_user_home }}/.bashrc"
+    dest: "{{ actual_user_home.stdout }}/.bashrc"
     marker: "# {mark} ANSIBLE MANAGED BLOCK: pip"
     block: |
       [[ -d $HOME/.local/bin ]] && {
